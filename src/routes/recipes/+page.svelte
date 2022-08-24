@@ -11,10 +11,14 @@
 
     <div class="grid grid-cols-3 grid-flow-row gap-4">
         {#each recipes as item}
-            <a sveltekit:prefetch href={`/recipes/${item.id}`} class="relative">
-                <p class="text-sm absolute top-0 text-center mt-20 inset-x-0 text-white">{item.title}</p>
-                <img class="rounded-lg shadow-md" src={item.image} alt={item.title} />
+            <a sveltekit:prefetch href={`/recipes/${item?.id}`} class="relative">
+                <p class="text-sm absolute top-0 text-center mt-20 inset-x-0 text-white">{item?.title}</p>
+                <img class="rounded-lg shadow-md" src={item?.image} alt={item?.title} />
             </a>
+        {:else}
+            <p class="text-2xl text-center mb-10">
+                <span class="font-bold text-red-800">Nothing found!</span>
+            </p>
         {/each}
     </div>
 </main>

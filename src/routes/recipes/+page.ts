@@ -1,6 +1,6 @@
 /** @type {import('./$types').PageLoad} */
 export async function load(page: any){
-    let data:any = [];
+    let data:any[] = [];
     let { fetch } = page;
     try {
         const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
@@ -9,12 +9,14 @@ export async function load(page: any){
         const { results } = await res.json();
         data = results;
     } catch (error) {
-        console.error(error);
+        // console.error(error);
+        data = []
     }finally{
-        return {
-            props: {
-                recipes : data,
-            }
+        data = []
+    }
+    return {
+        props: {
+            recipes : data,
         }
     }
 

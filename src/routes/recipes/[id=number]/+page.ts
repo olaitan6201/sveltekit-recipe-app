@@ -2,7 +2,7 @@
 
 /** @type {import('./$types').PageLoad} */
 export async function load(page: any){
-    let data:any = [];
+    let data:any = null;
     // console.log(page);
     
     let { fetch } = page;
@@ -17,11 +17,13 @@ export async function load(page: any){
         
     } catch (error) {
         // console.error(error);
+        data = null;
     }finally{
-        return {
-            props: {
-                recipe : data
-            }
+        data = null;
+    }
+    return {
+        props: {
+            recipe : data
         }
     }
 
