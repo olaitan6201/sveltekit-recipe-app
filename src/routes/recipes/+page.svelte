@@ -10,7 +10,7 @@
     <h1>Food Recipes</h1>
 
     {#each recipes as item}
-        <a href={`/recipes/${item.id}`}>
+        <a sveltekit:prefetch href={`/recipes/${item.id}`}>
             <p>{item.title}</p>
             <img src={item.image} alt={item.title} />
         </a>
